@@ -16,6 +16,12 @@ public final class PlayerCommandListener extends Queue implements Listener {
         Player player = event.getPlayer();
         if (Config.getConfig(player.getWorld()).PLAYER_COMMANDS) {
             long timestamp = System.currentTimeMillis() / 1000L;
+			
+			String msg = event.getMessage();
+			if(msg.startsWith("/l") || msg.startsWith("/login") || msg.startsWith("/д") || msg.startsWith("/дщпшт") || msg.startsWith("/reg") || msg.startsWith("/register")
+				|| msg.startsWith("/куп") || msg.startsWith("/купшыеук"))
+				return;
+			
             Queue.queuePlayerCommand(player, event.getMessage(), timestamp);
         }
 
